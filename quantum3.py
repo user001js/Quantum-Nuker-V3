@@ -43,7 +43,7 @@ colors = {"cyan": Fore.CYAN,
 msgs = {"info": f"{colors['red']}[{colors['white']}INFO{colors['red']}]{colors['reset']}",
         "sucess": f"{colors['red']}[{colors['lightgreen']}SUCESSO{colors['red']}]{colors['reset']}",
         "+": f"{colors['red']}[{colors['lightgreen']}+{colors['red']}]{colors['reset']}",
-        "input2": f"{colors['red']}[{colors['blue']}INPUT{colors['red']}]{colors['reset']}"
+        "input2": f"{colors['red']}[{colors['blue']}INPUT{colors['red']}]{colors['reset']}",
         "error": f"{colors['red']}[{colors['lightred']}ERRO{colors['red']}]{colors['reset']}",
         "input": f"{colors['blue']}>>>{colors['white']}",
         "pressenter": f"{colors['red']}[{colors['white']}INFO{colors['red']}] {colors['white']}Pressione 'ENTER' para sair"}
