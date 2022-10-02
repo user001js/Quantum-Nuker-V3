@@ -268,8 +268,6 @@ async def help(ctx):
     embed.add_field(name="Configurações", value=f"`{p}settings` ou `{p}config`")
     embed.add_field(name="\u200b\nInformações — Quantum Nuker",
                     value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__", inline=False),
-    embed.timestamp = datetime.datetime.now(),
-    embed.set_footer(text='© MI-1',icon_url="https://media.discordapp.net/attachments/1012549166255325285/1017978299974172745/unknown.png"),
     await ctx.message.author.send(embed=embed)
 
 
