@@ -43,6 +43,7 @@ colors = {"cyan": Fore.CYAN,
 msgs = {"info": f"{colors['red']}[{colors['white']}INFO{colors['red']}]{colors['reset']}",
         "sucess": f"{colors['red']}[{colors['lightgreen']}SUCESSO{colors['red']}]{colors['reset']}",
         "+": f"{colors['red']}[{colors['lightgreen']}+{colors['red']}]{colors['reset']}",
+        "input2": f"{colors['red']}[{colors['blue']}INPUT{colors['red']}]{colors['reset']}"
         "error": f"{colors['red']}[{colors['lightred']}ERRO{colors['red']}]{colors['reset']}",
         "input": f"{colors['blue']}>>>{colors['white']}",
         "pressenter": f"{colors['red']}[{colors['white']}INFO{colors['red']}] {colors['white']}Pressione 'ENTER' para sair"}
@@ -125,7 +126,7 @@ print(f'{colors["red"]}\n     ' + "\n"
       f"{colors['white']}                           Community: {colors['lightblue']}discord.gg/2AkAeZD6BU{colors['white']}\n"
       f"{colors['white']}                           YouTube Channel: {colors['lightred']}youtube.com/channel/UChhgLjZCc8ZaG_ogWWKwyyA{colors['white']}\n"
       f"{colors['white']}                           Project: {colors['lightgreen']}https://github.com/user001js/Quantum-Nuker-V3\n{colors['white']}"
-      f"{colors['white']}                           Language: {colors['lightgreen']}PT-BR {colors['green']}Brazilian Portuguese\n\n")
+      f"{colors['white']}                           Language: {colors['lightgreen']}PT-BR {colors['green']}Brazilian Portuguese\n\n{colors['white']}")
 
 """
 Fetching prefix, token and owner ID's from config
@@ -141,12 +142,12 @@ try:
     activity = config["activity"]
     print(f"{msgs['info']} O arquivo \"config.json\" foi carregado com sucesso!")
 except FileNotFoundError:
-    token = input(f"Insira o Token {msgs['input']} ")
-    prefix = input(f"Insira um prefixo {msgs['input']} ")
+    token = input(f"{msgs['input2']} Insira o Token {msgs['input']} ")
+    prefix = input(f"{msgs['input2']} Insira um prefixo {msgs['input']} ")
     ownersID = input(
-        f"Insira o ID de usuário dos proprietários dos bots (se mais de um, use ',') {msgs['input']} ")
+        f"{msgs['input2']} Insira o ID de usuário dos proprietários dos bots (se mais de um, use ',') {msgs['input']} ")
     whiteListYesOrNo = input(
-        f"Deseja ativar a lista de permissões? ('y' ou 's' para sim e 'n' para não) {msgs['input']} ").lower()
+        f"{msgs['input2']} Deseja ativar a lista de permissões? ('y' ou 's' para sim e 'n' para não) {msgs['input']} ").lower()
     whiteListBool = True if whiteListYesOrNo == "y" or "s" else False
     ownersID = ownersID.replace(" ", "")
     if "," in ownersID:
@@ -198,12 +199,12 @@ def isWhitelisted(ctx):
 
 @bot.event
 async def on_ready():
-    print(f"\n\n{colors['lightred']}" + ("—"*75).center(95) + f"\n{colors['white']}" +
-          f"Conectado com sucesso em \"{bot.user}\"".center(95) + "\n" +
-          f"Prefixo do(a) \"{bot.user.username}\": {bot.command_prefix}".center(95) + "\n" +
-          f"Quantidade de proprietários do robô: {ownersID}" + "\n" +
-          f"Quantidade total de membros: {len(bot.users)} ".center(95) + "\n" +
-          f"Quantidade total de servidores: {len(bot.guilds)}".center(95) + f"\n{colors['lightred']}" + ("—"*75).center(95) + f"\n\n{colors['white']}")
+    print(f"\n\n{colors['lightblue']}" + ("—"*75).center(95) + f"\n{colors['white']}" +
+          f"Conectado com sucesso em \"{colors['blue']}{bot.user}{colors['white']}\"".center(95) + "\n" +
+          f"Prefixo do robô:{colors['blue']} {bot.command_prefix}{colors['white']}".center(95) + "\n" +
+          f"Proprietários do robô:{colors['lightblue']} {ownersID} {colors['white']}".center(95) + "\n" +
+          f"Quantidade total de membros:{colors['blue']} {len(bot.users)} {colors['white']}".center(95) + "\n" +
+          f"Quantidade total de servidores:{colors['blue']} {len(bot.guilds)} {colors['white']}".center(95) + f"\n{colors['lightblue']}" + ("—"*75).center(95) + f"\n\n{colors['white']}")
 
 
 @bot.event
@@ -281,13 +282,13 @@ async def settings(ctx):
     embed.set_author(name="Quantum Nuker V3",
                      url="https://github.com/user001js/Quantum-Nuker-V3")
     embed.add_field(
-        name="Prefixo", value=f"> Altere o prefixo do(a) \"{bot.user.username}\".\nUse `{p}config prefix <prefixo>`, `{p}config prefixo <prefixo>` ou `{p}configurar prefixo <prefixo>`", inline=False)
+        name="Prefixo", value=f"> Altere o prefixo do(a) \"{bot.user}\".\nUse `{p}config prefix <prefixo>`, `{p}config prefixo <prefixo>` ou `{p}configurar prefixo <prefixo>`", inline=False)
     embed.add_field(
-        name="Proprietários", value=f"> Adicione ou remova um(a) usuário(a) da equipe de proprietários do(a) \"{bot.user.username}\".\nUse `{p}settings owners <add/remove> <menção/ID>` ou `{p}configurar owners <add/remove> <menção/ID>`", inline=False)
+        name="Proprietários", value=f"> Adicione ou remova um(a) usuário(a) da equipe de proprietários do(a) \"{bot.user}\".\nUse `{p}settings owners <add/remove> <menção/ID>` ou `{p}configurar owners <add/remove> <menção/ID>`", inline=False)
     embed.add_field(
         name="Lista de permissões (\"whitelist\")", value=f"> Ative ou desative a lista de permissões.\nUse `{p}settings whitelist <on/off>` ou `{p}configurar whitelist <on/off>`", inline=True)
     embed.add_field(
-        name="Atividade do robô", value=f"> Altere ou desative a atividade do(a) \"{bot.user.username}\".\n> Tipos disponíveis de atividades: `playing` ou `jogando`, `listening` ou `ouvindo`, `watching` ou `assistindo`.\nUse `{p}settings activity <set/off> <tipo> <texto>` ou `{p}configurar atividade <set/off> <tipo> <texto>`.", inline=False)
+        name="Atividade do robô", value=f"> Altere ou desative a atividade do(a) \"{bot.user}\".\n> Tipos disponíveis de atividades: `playing` ou `jogando`, `listening` ou `ouvindo`, `watching` ou `assistindo`.\nUse `{p}settings activity <set/off> <tipo> <texto>` ou `{p}configurar atividade <set/off> <tipo> <texto>`.", inline=False)
     await ctx.message.author.send(embed=embed)
 
 
@@ -301,7 +302,7 @@ async def settingsPrefix(ctx, newPrefix):
         json.dump(config, data, indent=2)
     await ctx.message.add_reaction('<:verified_MI1:1025192104714059808>')
     print(
-        f"{msgs['info']} O novo prefixo do(a) \"{bot.user.username}\" agora é \"{colors['blue']}{newPrefix}{colors['white']}\".")
+        f"{msgs['info']} O novo prefixo do(a) \"{bot.user}\" agora é \"{colors['blue']}{newPrefix}{colors['white']}\".")
 
 
 @settings.command(name='owners', aliases=["owner", "ownersID", "ownerID"])
@@ -321,7 +322,7 @@ async def settingownersID(ctx, action, *, users):
         with open("config.json", "w") as data:
             json.dump(config, data, indent=2)
         print(
-            f"{msgs['info']}{colors['lightblue']}{str(users)[1:-1]}{colors['white']} usuário(s) foi/foram adicionado(s)como proprietário(s) do(a) \"{bot.user.username}\".")
+            f"{msgs['info']}{colors['lightblue']}{str(users)[1:-1]}{colors['white']} usuário(s) foi/foram adicionado(s)como proprietário(s) do(a) \"{bot.user}\".")
         await ctx.message.add_reaction('<:verified_MI1:1025192104714059808>')
     elif action == "remove" or "delete":
         for user in users:
@@ -329,7 +330,7 @@ async def settingownersID(ctx, action, *, users):
         with open("config.json", "w") as data:
             json.dump(config, data, indent=2)
         print(
-            f"{msgs['info']} Foram removidos {colors['cyan']}{str(users)[1:-1]}{colors['white']} usuários da equipe de administradores e proprietários do(a) \"{bot.user.username}\"")
+            f"{msgs['info']} Foram removidos {colors['cyan']}{str(users)[1:-1]}{colors['white']} usuários da equipe de administradores e proprietários do(a) \"{bot.user}\"")
         await ctx.message.add_reaction('<:verified_MI1:1025192104714059808>')
     else:
         await ctx.message.add_reaction('<:unverified_MI1:1025192725487812738>')
