@@ -76,7 +76,7 @@ def checkVersion():
     if version == "3.0.3":
         return ""
     req = requests.get(
-        "")
+        "https://raw.githubusercontent.com/user001js/Quantum-Nuker-V3/main/quantum3.py")
     if req.status_code == requests.codes.ok:
         gitVersion = req.text.rstrip()
         if version == gitVersion:
@@ -251,7 +251,7 @@ async def help(ctx):
     embed.add_field(name="Deletar todos os cargos do servidor", value=f"`{p}9`, `{p}dr`, `{p}delallroles`, `{p}dar`, `{p}deleteroles`, `{p}delroles` ou `{p}deleteallroles`", inline=True)
     embed.add_field(name="\u200b", value="\u200b", inline=TOO_MANY_REQUESTS)
     embed.add_field(name="Criar canais no servidor (\"spam channels\")",
-                    value=f"`{p}10`, `{p}sch`, `{p}spamchannels`, `{p}createchannels` ou `{p}criarcanais` + `<quantidade> <nome dos canais>`", inline=True)
+                    value=f"`{p}10`, `{p}sch`, `{p}spamcurrentchannel`, `{p}createchannels` ou `{p}criarcanais` + `<quantidade> <nome dos canais>`", inline=True)
     embed.add_field(name="Criar cargos no servidor (\"spam roles\")",
                     value=f"`{p}11`, `{p}sr`, `{p}spamroles`, `{p}swr`, `{p}criarcargos`, `{p}createroles` ou `{p}cr` + `<quantidade> <nome dos cargos>`", inline=True)
     embed.add_field(name="\u200b", value="\u200b", inline=True)
@@ -526,7 +526,7 @@ async def spamToAllChannels(ctx, amount: int = 50, *, text="@everyone Quantum Nu
                 print(f"{msgs['error']} Não foi possível enviar a mensagem no canal \"{ch}\".")
 
 
-@bot.command(name='7', aliases=["sc", "spamchannels", "spamchannel", "stc", "scc"])
+@bot.command(name='7', aliases=["sc", "spamcurrentchannel", "spamchannel", "stc", "scc"])
 @commands.check(isWhitelisted)
 async def spamToCurrentChannel(ctx, amount: int = 50, *, text="@everyone Quantum Nuker"):
     await msg_delete(ctx)
