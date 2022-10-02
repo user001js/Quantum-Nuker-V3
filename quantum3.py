@@ -232,7 +232,7 @@ async def on_command_error(ctx, err):
 async def help(ctx):
     await msg_delete(ctx)
     p = bot.command_prefix
-    embed = discord.Embed(title="Ajuda e informações — Quantum Nuker", color=embedColor)
+    embed1 = discord.Embed(title="Ajuda e informações — Quantum Nuker", color=embedColor)
     embed.set_author(name="Quantum Nuker V3",
                      url="https://github.com/user001js/Quantum-Nuker-V3")
     embed.add_field(
@@ -264,11 +264,11 @@ async def help(ctx):
                     value=f"`{p}14`, `{p}ga`, `{p}getadmin`, `{p}obteradmin`, `{p}conseguiradmin` ou `{p}admin` + `<nome do cargo>`", inline=False)
     # embed.add_field(name="\u200b", value="\u200b", inline=True)
     embed.add_field(
-        name="Recuperar (somente em mensagem direta)", value=f"> Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`.", inline=False)
+        name="Recuperar (somente em mensagem direta)", value=f"> Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`.", inline=True)
     embed.add_field(name="Configurações", value=f"`{p}settings` ou `{p}config`")
     embed.add_field(name="\u200b\nInformações — Quantum Nuker",
                     value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__.", inline=False)
-    await ctx.message.author.send(embed=embed)
+    await ctx.message.author.send(embed=embed1)
 
 
 @bot.group(name='settings', aliases=["config", "configurações", "set", "configurar", "alterar"], invoke_without_command=True)
