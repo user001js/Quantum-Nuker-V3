@@ -267,7 +267,7 @@ async def help(ctx):
         name="Recuperar (somente em mensagem direta)", value=f"> Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`.", inline=False)
     embed.add_field(name="Configurações", value=f"`{p}settings` ou `{p}config`")
     embed.add_field(name="\u200b\nInformações — Quantum Nuker",
-                    value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__", inline=False),
+                    value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__.", inline=False)
     await ctx.message.author.send(embed=embed)
 
 
