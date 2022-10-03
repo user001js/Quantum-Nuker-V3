@@ -232,43 +232,31 @@ async def on_command_error(ctx, err):
 async def help(ctx):
     await msg_delete(ctx)
     p = bot.command_prefix
-    embed1 = discord.Embed(title="Ajuda e informações — Quantum Nuker", color=embedColor)
+    embed = discord.Embed(title="Ajuda e informações — Quantum Nuker", color=embedColor)
     embed.set_author(name="Quantum Nuker V3",
                      url="https://github.com/user001js/Quantum-Nuker-V3")
     embed.add_field(
         name="Destruição em massa", value=f"`{p}1`, `{p}nk`, `{p}nuke`, `{p}atacar`, `{p}dest`, `{p}destruir`, `{p}attack` ou `{p}n` + `<banir 1/0>` `<mensagem de texto>`", inline=False)
     embed.add_field(name="Banir todos os membros do servidor", value=f"`{p}2`, `{p}be`, `{p}baneveryone`, `{p}banall`, `{p}banirtodos` ou `{p}ba`", inline=False)
     embed.add_field(name="Expulsar todos os membros do servidor", value=f"`{p}3`, `{p}ke`, `{p}kickeveryone`, `{p}expulsartodos`, `{p}kickall` ou `{p}ka`", inline=False)
-    embed.add_field(name="Renomear todos os membros do servidor",
-                    value=f"`{p}4`, `{p}rn`, `{p}rnall`, `{p}rmall`, `{p}renameallmembers` ou `{p}renomeartodos` + <novo nome de usuário>`", inline=False)
-    embed.add_field(name="Enviar mensagem de texto no privado de todos os membros do serv.",
-                    value=f"`{p}5`, `{p}dme`, `{p}mdall`, `{p}dmall`, `{p}dma` ou `{p}dmeveryone` + `<mensagem>`", inline=False)
-    embed.add_field(name="Enviar mensagem(ns) em todos os canais do servidor (\"spam all\")",
-                    value=f"`{p}6`, `{p}sa`, `{p}sac`, `{p}spamallchannels` ou `{p}scall` + `<quantidade de mensagens> <texto>`", inline=False)
-    embed.add_field(name="Enviar mensagem(ns) no canal atual (\"spam\")",
-                    value=f"`{p}7`, `{p}sc`, `{p}spamchannels`, `{p}spamchannel`, `{p}stc` oi `{p}scc` + `<quantidade de mensagens> <texto>`", inline=False)
-    embed.add_field(name="Deletar todos os canais do servidor",
-                    value=f"`{p}8`, `{p}dch`, `{p}dac`, `{p}deleteallchannels` ou `{p}delallchannels`", inline=True)
+    embed.add_field(name="Renomear todos os membros do servidor", value=f"`{p}4`, `{p}rn`, `{p}rnall`, `{p}rmall`, `{p}renameallmembers` ou `{p}renomeartodos` + <novo nome de usuário>`", inline=False)
+    embed.add_field(name="Enviar mensagem de texto no privado de todos os membros do serv.", value=f"`{p}5`, `{p}dme`, `{p}mdall`, `{p}dmall`, `{p}dma` ou `{p}dmeveryone` + `<mensagem>`", inline=False)
+    embed.add_field(name="Enviar mensagem(ns) em todos os canais do servidor (\"spam all\")", value=f"`{p}6`, `{p}sa`, `{p}sac`, `{p}spamallchannels` ou `{p}scall` + `<quantidade de mensagens> <texto>`", inline=False)
+    embed.add_field(name="Enviar mensagem(ns) no canal atual (\"spam\")", value=f"`{p}7`, `{p}sc`, `{p}spamchannels`, `{p}spamchannel`, `{p}stc` oi `{p}scc` + `<quantidade de mensagens> <texto>`", inline=False)
+    embed.add_field(name="Deletar todos os canais do servidor", value=f"`{p}8`, `{p}dch`, `{p}dac`, `{p}deleteallchannels` ou `{p}delallchannels`", inline=True)
     embed.add_field(name="Deletar todos os cargos do servidor", value=f"`{p}9`, `{p}dr`, `{p}delallroles`, `{p}dar`, `{p}deleteroles`, `{p}delroles` ou `{p}deleteallroles`", inline=True)
     embed.add_field(name="\u200b", value="\u200b", inline=TOO_MANY_REQUESTS)
-    embed.add_field(name="Criar canais no servidor (\"spam channels\")",
-                    value=f"`{p}10`, `{p}sch`, `{p}spamcurrentchannel`, `{p}createchannels` ou `{p}criarcanais` + `<quantidade> <nome dos canais>`", inline=True)
-    embed.add_field(name="Criar cargos no servidor (\"spam roles\")",
-                    value=f"`{p}11`, `{p}sr`, `{p}spamroles`, `{p}swr`, `{p}criarcargos`, `{p}createroles` ou `{p}cr` + `<quantidade> <nome dos cargos>`", inline=True)
+    embed.add_field(name="Criar canais no servidor (\"spam channels\")", value=f"`{p}10`, `{p}sch`, `{p}spamcurrentchannel`, `{p}createchannels` ou `{p}criarcanais` + `<quantidade> <nome dos canais>`", inline=True)
+    embed.add_field(name="Criar cargos no servidor (\"spam roles\")", value=f"`{p}11`, `{p}sr`, `{p}spamroles`, `{p}swr`, `{p}criarcargos`, `{p}createroles` ou `{p}cr` + `<quantidade> <nome dos cargos>`", inline=True)
     embed.add_field(name="\u200b", value="\u200b", inline=True)
-    embed.add_field(name="Editar ícone do servidor",
-                    value=f"`{p}12`, `{p}si`, `{p}editservericon`, `{p}editicon`, `{p}iconserver`, `{p}edi` + `<anexo/link/arquivo`", inline=True)
-    embed.add_field(name="Editar nome do servidor",
-                    value=f"`{p}13`, `{p}sn`, `{p}edm`, `{p}editservername`, `{p}servername`, `{p}editarnomedoservidor` + `<nome>`", inline=True)
-    embed.add_field(name="Obter cargo com permissões administrativas",
-                    value=f"`{p}14`, `{p}ga`, `{p}getadmin`, `{p}obteradmin`, `{p}conseguiradmin` ou `{p}admin` + `<nome do cargo>`", inline=False)
-    # embed.add_field(name="\u200b", value="\u200b", inline=True)
-    embed.add_field(
-        name="Recuperar (somente em mensagem direta)", value=f"> Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`.", inline=True)
+    embed.add_field(name="Editar ícone do servidor", value=f"`{p}12`, `{p}si`, `{p}editservericon`, `{p}editicon`, `{p}iconserver`, `{p}edi` + `<anexo/link/arquivo`", inline=True)
+    embed.add_field(name="Editar nome do servidor", value=f"`{p}13`, `{p}sn`, `{p}edm`, `{p}editservername`, `{p}servername`, `{p}editarnomedoservidor` + `<nome>`", inline=True)
+    embed.add_field(name="Obter cargo com permissões administrativas", value=f"`{p}14`, `{p}ga`, `{p}getadmin`, `{p}obteradmin`, `{p}conseguiradmin` ou `{p}admin` + `<nome do cargo>`", inline=False)
+    embed.add_field(name="\u200b", value="\u200b", inline=True)
+    embed.add_field(name="Recuperar (somente em mensagem direta)", value=f"> Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`.", inline=True)
     embed.add_field(name="Configurações", value=f"`{p}settings` ou `{p}config`")
-    embed.add_field(name="\u200b\nInformações — Quantum Nuker",
-                    value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__.", inline=False)
-    await ctx.message.author.send(embed=embed1)
+    embed.add_field(name="\u200b\nInformações — Quantum Nuker", value=f"> **Quantum Nuker V3**\nDesenvolvido por <@984580784956510228>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n> **Lista de comandos**\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V2/README.md)__.", inline=False)
+    await ctx.message.author.send(embed=embed)
 
 
 @bot.group(name='settings', aliases=["config", "configurações", "set", "configurar", "alterar"], invoke_without_command=True)
@@ -277,8 +265,7 @@ async def settings(ctx):
     p = bot.command_prefix
     embed = discord.Embed(
         title="Configurações — Quantum Nuker", description="Configurações disponíveis:\n`Os comandos aqui só poderão ser executados pelos usuários definidos como proprietários do robô.`", color=embedColor)
-    embed.set_author(name="Quantum Nuker V3",
-                     url="https://github.com/user001js/Quantum-Nuker-V3")
+    embed.set_author(name="Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3")
     embed.add_field(
         name="Prefixo", value=f"> Altere o prefixo do(a) \"{bot.user}\".\nUse `{p}config prefix <prefixo>`, `{p}config prefixo <prefixo>` ou `{p}configurar prefixo <prefixo>`", inline=False)
     embed.add_field(
