@@ -232,11 +232,9 @@ async def on_command_error(ctx, err):
 async def help(ctx):
     await msg_delete(ctx)
     p = bot.command_prefix
-    embed = discord.Embed(title="Ajuda e informações — Quantum Nuker", color=embedColor)
-    embed.set_author(name="Quantum Nuker V3",
-                     url="https://github.com/user001js/Quantum-Nuker-V3")
-    embed.add_field(
-        name="Destruição em massa", value=f"`{p}1`, `{p}nk`, `{p}nuke`, `{p}atacar`, `{p}dest`, `{p}destruir`, `{p}attack` ou `{p}n` + `<banir 1/0>` `<mensagem de texto>`", inline=False)
+    embed = discord.Embed(title="Ajuda e informações — Quantum Nuker", description="Baixe o **Quantum Nuker V3** __[aqui](https://github.com/user001js/Quantum-Nuker-V3)__.", color=embedColor)
+    embed.set_author(name="Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3")
+    embed.add_field(name="Destruição em massa", value=f"`{p}1`, `{p}nk`, `{p}nuke`, `{p}atacar`, `{p}dest`, `{p}destruir`, `{p}attack` ou `{p}n` + `<banir 1/0>` `<mensagem de texto>`", inline=False)
     embed.add_field(name="Banir todos os membros do servidor", value=f"`{p}2`, `{p}be`, `{p}baneveryone`, `{p}banall`, `{p}banirtodos` ou `{p}ba`", inline=False)
     embed.add_field(name="Expulsar todos os membros do servidor", value=f"`{p}3`, `{p}ke`, `{p}kickeveryone`, `{p}expulsartodos`, `{p}kickall` ou `{p}ka`", inline=False)
     embed.add_field(name="Renomear todos os membros do servidor", value=f"`{p}4`, `{p}rn`, `{p}rnall`, `{p}rmall`, `{p}renameallmembers` ou `{p}renomeartodos` + <novo nome de usuário>`", inline=False)
