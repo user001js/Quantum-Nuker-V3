@@ -249,7 +249,7 @@ async def help(ctx):
     embed.add_field(name=f"Obter cargo com permissões administrativas", value=f"`{p}14`, `{p}ga`, `{p}getadmin`, `{p}obteradmin`, `{p}conseguiradmin` ou `{p}admin` + `<nome do cargo>`", inline=False)
     embed.add_field(name=f"Recuperar (somente em mensagem direta)", value=f"Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`", inline=False)
     embed.add_field(name=f"Configurações", value=f"`{p}settings` ou `{p}config`", inline=False)
-    embed.add_field(name=f"Informações de desenvolvimento — Quantum Nuker", value=f"**Quantum Nuker V3**\n\nDesenvolvido por <@738674601499820085>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\n\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\n\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n\n> **Lista de comandos**\n\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V3/)__", inline=False)
+    embed.add_field(name=f"Informações de desenvolvimento — Quantum Nuker", value=f"\n\n**Quantum Nuker V3**\n\nDesenvolvido por <@738674601499820085>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\n\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\n\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n\n> **Lista de comandos**\n\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V3/)__", inline=False)
     embed.set_footer(text="© 2022 MI-1, user 001")
     await ctx.message.author.send(embed=embed)
 
